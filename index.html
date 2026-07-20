@@ -329,6 +329,67 @@
             font-weight: 500;
         }
 
+        /* --- FAQ SECTION --- */
+        .faq-section {
+            background-color: var(--light-bg-white);
+        }
+
+        .faq-list {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--light-bg-grey);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .faq-item.open {
+            border-color: var(--accent-gold);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 22px 28px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--text-dark);
+        }
+
+        .faq-question i {
+            color: var(--accent-gold);
+            font-size: 1rem;
+            flex-shrink: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .faq-item.open .faq-question i {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s ease;
+        }
+
+        .faq-answer p {
+            padding: 0 28px 24px 28px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
         /* --- DIFERENCIAIS SECTION --- */
         .differentials {
             background-color: var(--light-bg-grey);
@@ -427,14 +488,19 @@
 
         .book-img-container {
             position: relative;
-            height: 260px;
+            height: 320px;
             overflow: hidden;
+            background-color: var(--light-bg-darkgrey);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
         }
 
         .book-img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             transition: var(--transition-smooth);
         }
 
@@ -618,8 +684,10 @@
 
         .testi-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
         .testi-card {
@@ -1095,7 +1163,7 @@
                             <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Livro coletivo de alto padrão para até 10 mulheres líderes e empreendedoras.</span></li>
                             <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Capítulo autoral exclusivo (10 a 15 páginas) com mentoria completa.</span></li>
                             <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Publicação oficial registrada com ISBN e ficha catalográfica.</span></li>
-                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Inclusos 5 exemplares físicos + versão digital e-book para distribuição.</span></li>
+                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Inclusos 5 exemplares físicos + versão digital em e-book.</span></li>
                             <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Lançamento presencial Livraria da Vila em São Paulo/SP (Novembro/2026).</span></li>
                         </ul>
                         <div class="book-pricing">
@@ -1119,8 +1187,8 @@
                             <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Coautoria focada em até 15 especialistas ou pessoas com diagnóstico (TEA, TDAH, AHSD, etc).</span></li>
                             <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Capítulo estratégico de 10 a 15 páginas com suporte jornalístico profissional.</span></li>
                             <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Registro oficial ISBN, revisão de alto nível e design de capa premium.</span></li>
-                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Receba 5 exemplares impressos de luxo + distribuição global em e-book.</span></li>
-                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Evento de gala e sessão de autógrafos presencial em São Paulo (Início de 2027).</span></li>
+                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Receba 5 exemplares impressos + versão digital em e-book.</span></li>
+                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Evento de lançamento e sessão de autógrafos presencial em São Paulo (Início de 2027).</span></li>
                         </ul>
                         <div class="book-pricing">
                             <p class="pricing-label">Investimento Exclusivo</p>
@@ -1262,6 +1330,128 @@
         </div>
     </section>
 
+    <!-- PERGUNTAS FREQUENTES -->
+    <section class="faq-section section-padding" id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Perguntas Frequentes</h2>
+                <p class="section-subtitle">Tire suas dúvidas sobre o processo editorial e o posicionamento de autoridade com a Otto Editora.</p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Por que publicar um livro pode fortalecer minha autoridade profissional?</span>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Um livro é uma das formas mais consistentes de compartilhar conhecimento e consolidar sua credibilidade. Além de registrar sua experiência, ele amplia sua visibilidade, fortalece sua marca pessoal e pode abrir portas para novas oportunidades, como palestras, parcerias e crescimento profissional.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Quem pode publicar um livro pela Otto Editora?</span>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Atendemos especialistas, empreendedores, profissionais, empresas e pessoas que desejam compartilhar conhecimento, experiências ou histórias por meio de uma publicação de qualidade. Cada projeto é avaliado para garantir alinhamento com nossa proposta editorial.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Nunca escrevi um livro. Posso publicar mesmo assim?</span>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim. Você não precisa chegar com o livro pronto. Dependendo do projeto, nossa equipe orienta todo o processo de desenvolvimento do conteúdo, organização dos capítulos e preparação da obra para publicação.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Quais serviços a Otto Editora oferece?</span>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oferecemos soluções completas para publicação, incluindo revisão, preparação de texto, diagramação, projeto gráfico, criação de capa, registro ISBN, ficha catalográfica, publicação e acompanhamento editorial.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Vocês publicam livros individuais e coletivos?</span>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim. Desenvolvemos tanto projetos autorais quanto obras em coautoria, reunindo profissionais que compartilham experiências e conhecimentos sobre um mesmo tema.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>O livro recebe ISBN?</span>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim. Todas as publicações seguem os padrões editoriais e recebem ISBN, além dos demais registros necessários conforme o projeto.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Os direitos autorais são meus?</span>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim. Na coautoria, o autor mantém os direitos sobre sua obra conforme estabelecido em contrato. As condições de publicação são apresentadas de forma transparente antes do início do projeto.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Posso vender meu próprio livro?</span>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim. O autor pode comercializar exemplares da sua obra de acordo com as condições previstas em contrato.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Quanto tempo leva para publicar um livro?</span>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O prazo varia conforme a complexidade do projeto, o volume de conteúdo e o cronograma editorial. Após a análise inicial, apresentamos uma estimativa personalizada.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Qual é o investimento?</span>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Cada livro possui características únicas, por isso o investimento varia conforme o tipo de projeto, quantidade de páginas, tiragem e serviços contratados. Entre em contato para receber uma proposta personalizada.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Como posso iniciar meu projeto?</span>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Basta entrar em contato conosco pelo WhatsApp. Nossa equipe entenderá seus objetivos e indicará a melhor solução editorial para o seu projeto.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer>
         <div class="container">
@@ -1289,6 +1479,7 @@
                     <h4>Institucional</h4>
                     <ul>
                         <li><a href="#depoimentos">Depoimentos</a></li>
+                        <li><a href="#faq">Perguntas Frequentes</a></li>
                         <li><a href="https://wa.me/4884328194/" target="_blank">Fale Conosco</a></li>
                     </ul>
                 </div>
@@ -1347,6 +1538,37 @@
                     if(mobileCta) mobileCta.style.display = 'none';
                 }
             });
+        });
+
+        // --- FAQ Accordion Functionality (dropdown: só uma pergunta aberta por vez) ---
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+
+            question.addEventListener('click', () => {
+                const isOpen = item.classList.contains('open');
+
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('open');
+                    otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                });
+
+                if (!isOpen) {
+                    item.classList.add('open');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+
+        // Recalcula a altura da pergunta aberta se a janela for redimensionada
+        window.addEventListener('resize', () => {
+            const openItem = document.querySelector('.faq-item.open');
+            if (openItem) {
+                const answer = openItem.querySelector('.faq-answer');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
         });
 
         // --- Intersection Observer for Scroll Reveal Animations ---
