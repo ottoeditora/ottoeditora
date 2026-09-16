@@ -474,7 +474,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         .books-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 35px;
         }
 
@@ -608,6 +608,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         .book-btn {
             width: 100%;
+        }
+
+        /* --- ESTADO: INSCRIÇÕES ESGOTADAS --- */
+        .book-card-soldout {
+            opacity: 0.8;
+        }
+
+        .book-card-soldout:hover {
+            transform: none;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .book-card-soldout .book-img {
+            filter: grayscale(70%);
+        }
+
+        .book-card-soldout:hover .book-img {
+            transform: none;
+        }
+
+        .book-badge-soldout {
+            background-color: var(--text-muted);
+            box-shadow: 0 4px 10px rgba(108, 117, 125, 0.4);
+        }
+
+        .btn-disabled {
+            width: 100%;
+            background-color: #d9dcdf;
+            color: var(--text-muted);
+            cursor: not-allowed;
+            box-shadow: none;
+            pointer-events: none;
         }
 
         /* --- SOBRE A OTTO EDITORA --- */
@@ -1162,11 +1194,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div class="books-grid">
-                <!-- Card 1 -->
-                <div class="book-card reveal">
+                <!-- Card 1 - ESGOTADO -->
+                <div class="book-card book-card-soldout reveal">
                     <div class="book-img-container">
                         <img src="https://i.postimg.cc/NMD6SS9s/2.png" alt="Líderes de Si Mesmas: Negócios" class="book-img">
-                        <span class="book-badge">ÚLTIMAS 2 VAGAS!</span>
+                        <span class="book-badge book-badge-soldout">INSCRIÇÕES ESGOTADAS</span>
                     </div>
                     <div class="book-content">
                         <h3 class="book-title">Líderes de Si Mesmas: Negócios</h3>
@@ -1183,12 +1215,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <p class="pricing-value">R$ 1.200</p>
                             <p class="pricing-subtext">ou em até 12x no cartão de crédito</p>
                         </div>
-                        <a href="https://form.typeform.com/to/HDexd0qf" target="_blank" class="btn btn-gold book-btn">Inscreva-se <i class="fa-solid fa-chevron-right" style="margin-left:8px; font-size:0.8rem;"></i></a>
+                        <span class="btn btn-disabled book-btn">Turma Fechada <i class="fa-solid fa-lock" style="margin-left:8px; font-size:0.8rem;"></i></span>
                     </div>
                 </div>
 
-                <!-- Card 2 -->
+                <!-- Card 2 - NOVO: Vendedores Natos -->
                 <div class="book-card reveal delay-1">
+                    <div class="book-img-container">
+                        <img src="https://i.postimg.cc/c1Dm3QdZ/3.png" alt="Vendedores Natos - Bastidores do Empreendedorismo" class="book-img">
+                    </div>
+                    <div class="book-content">
+                        <h3 class="book-title">Vendedores Natos - Bastidores do Empreendedorismo</h3>
+                        <p class="book-author"><i class="fa-solid fa-user-tie"></i> Org: Larissa Ody - Fundadora da Otto Editora</p>
+                        <ul class="book-benefits">
+                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Livro em grupo com até 20 empreendedores(as)/empresários(as) que têm as vendas no seu DNA e querem compartilhar sua trajetória como líderes.</span></li>
+                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Capítulo autoral de 8 a 10 páginas, com orientações para escrita e acompanhamento editorial.</span></li>
+                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Publicação com ISBN, ficha catalográfica e código de barras, seguindo todos os requisitos técnicos do mercado editorial.</span></li>
+                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Inclusos 5 exemplares físicos + versão digital em e-book.</span></li>
+                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Evento de lançamento presencial em Florianópolis/SC (segundo semestre de 2027).</span></li>
+                        </ul>
+                        <div class="book-pricing">
+                            <p class="pricing-label">Investimento Exclusivo</p>
+                            <p class="pricing-value">R$ 1.200</p>
+                            <p class="pricing-subtext">ou em até 12x no cartão de crédito (juros da operadora)</p>
+                        </div>
+                        <a href="https://wa.me/4884328194/" target="_blank" class="btn btn-gold book-btn">Inscreva-se <i class="fa-solid fa-chevron-right" style="margin-left:8px; font-size:0.8rem;"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="book-card reveal delay-2">
                     <div class="book-img-container">
                         <img src="https://i.postimg.cc/tTk3wwZ9/3.png" alt="Mulheres que Transformam o Universo Neurodivergente" class="book-img">
                     </div>
@@ -1196,11 +1252,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <h3 class="book-title">Mulheres que Transformam o Universo Neurodivergente</h3>
                         <p class="book-author"><i class="fa-solid fa-user-tie"></i> Org: Larissa Ody</p>
                         <ul class="book-benefits">
-                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Coautoria focada em até 15 especialistas ou pessoas com diagnóstico (TEA, TDAH, AHSD, etc).</span></li>
-                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Capítulo estratégico de 10 a 15 páginas com suporte jornalístico profissional.</span></li>
-                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Registro oficial ISBN, revisão de alto nível e design de capa premium.</span></li>
-                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Receba 5 exemplares impressos + versão digital em e-book.</span></li>
-                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Evento de lançamento e sessão de autógrafos presencial em São Paulo (Início de 2027).</span></li>
+                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Coautoria focada em até 15 profissionais especialistas ou pessoas com diagnóstico (TEA, TDAH, AHSD, etc).</span></li>
+                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Capítulo autoral de 10 a 15 páginas, com orientações para escrita e acompanhamento editorial.</span></li>
+                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Publicação com ISBN, ficha catalográfica e código de barras, seguindo todos os requisitos técnicos do mercado editorial.</span></li>
+                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Inclusos 5 exemplares físicos + versão digital em e-book.</span></li>
+                            <li class="book-benefit-item"><i class="fa-solid fa-circle-check"></i> <span>Evento de lançamento presencial em Florianópolis/SC (segundo semestre de 2027).</span></li>
                         </ul>
                         <div class="book-pricing">
                             <p class="pricing-label">Investimento Exclusivo</p>
@@ -1212,7 +1268,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="book-card reveal delay-2">
+                <div class="book-card reveal delay-3">
                     <div class="book-img-container">
                         <img src="https://i.postimg.cc/PxyW99pt/4.png" alt="Sua História Aqui" class="book-img">
                     </div>
@@ -1413,7 +1469,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 <div class="faq-item reveal">
                     <div class="faq-question">
-                        <span>Os direitos autorais são meus?</span>
+                        <span>Os direitos de venda são meus?</span>
                         <i class="fa-solid fa-plus"></i>
                     </div>
                     <div class="faq-answer">
